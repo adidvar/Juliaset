@@ -1,0 +1,6 @@
+[requires]
+glfw/3.3.8
+glad/0.1.36
+glm/cci.20220420
+[generators]
+CMakeDeps
