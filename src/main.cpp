@@ -26,7 +26,6 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    // glfw: �������� ����
     GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Julia", NULL, NULL);
     if (window == NULL)
     {
@@ -37,7 +36,6 @@ int main()
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    // glad: �������� ���� ���������� �� OpenGL-�������
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
@@ -47,15 +45,9 @@ int main()
     Shader shader;
 
     float vertices[] = {
-     1.0f,  1.0f, 0,   // ������� ������
-     1.0f, -1.0f, 0,  // ������ ������
-    -1.0f, -1.0f, 0,   // ������ �����
-    -1.0f,  1.0f, 0,   // ������� ����� 
+        1.0f, 1.0f, 0, 1.0f, -1.0f, 0, -1.0f, -1.0f, 0, -1.0f, 1.0f, 0,
     };
-    unsigned int indices[] = {  // �������, ��� �� �������� � 0!
-        0, 1, 3, // ������ �����������
-        1, 2, 3  // ������ �����������
-    };
+    unsigned int indices[] = {0, 1, 3, 1, 2, 3};
     unsigned int point_array, render_list , index_array;
 
     glGenVertexArrays(1, &render_list);
@@ -79,11 +71,9 @@ int main()
     float time = 1;
 
     glBindVertexArray(0);
-       // ���� ����������
     while (!glfwWindowShouldClose(window))
     {
         auto begin = std::chrono::high_resolution_clock::now();
-        // ��������� �����
         float ratio = (float)SCR_WIDTH / SCR_HEIGHT;
 
         processInput(window);
@@ -92,7 +82,6 @@ int main()
         glm::mat4 transform = glm::identity<glm::mat4>();
         transform = glm::scale(transform, glm::vec3(scale, scale/ratio, 1));
 
-      // glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         unsigned int TransformLoc = glGetUniformLocation(shader.ID, "transform");
         glUniformMatrix4fv(TransformLoc, 1, GL_FALSE, glm::value_ptr(transform));
         unsigned int DeltaLoc = glGetUniformLocation(shader.ID, "delta");

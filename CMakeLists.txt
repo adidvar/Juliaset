@@ -13,4 +13,5 @@ find_package(glad REQUIRED)
 find_package(glm REQUIRED)
 
 add_executable(Julia src/main.cpp src/shader.h src/shader.cpp)
-target_link_libraries(Julia opengl::opengl glfw3 glad::glad glm::glm)
+target_link_libraries(Julia opengl::opengl glfw ${GLFW3_LIBRARY} glad::glad glm::glm)
+target_include_directories(Julia PUBLIC ${glfw3_INCLUDE_DIRS})

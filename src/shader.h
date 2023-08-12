@@ -1,14 +1,14 @@
-#ifndef SHADER
-#define SHADER
+#ifndef SHADER_H
+#define SHADER_H
 
 const char* load_from_file(const char* name);
 
 class Shader {
-public:
-	Shader();
-	void Use();
-    unsigned int ID;
-private:
+ public:
+  Shader();
+  void Use();
+
+  unsigned int ID;
 };
 
-#endif // !SHADER
+#endif
