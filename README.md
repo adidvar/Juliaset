@@ -23,7 +23,6 @@ The Julia Set is a fractal defined in the complex plane. This project allows you
 - Render the mesmerizing Julia Set fractal.
 - Utilize OpenGL shaders for efficient rendering.
 - Easily manage project dependencies with Conan.
-- Simple and intuitive interface for user interaction.
 
 ## Getting Started
 
@@ -67,7 +66,7 @@ To install the Julia Set Renderer, follow the steps mentioned in the [Getting St
 
 ## Usage
 
-After building and running the application, you will be presented with a window displaying the rendered Julia Set fractal. Use the provided controls to adjust the parameters of the fractal and explore its intricate patterns. Interact with the application to zoom in, zoom out, and pan across the fractal.
+After building and running the application, you will be presented with a window displaying the rendered Julia Set fractal.
 
 ## License
 
