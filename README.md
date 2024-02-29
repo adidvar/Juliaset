@@ -1,5 +1,7 @@
 # Julia Set Renderer
 
+доброго вечора ми з України
+
 <!--![Julia Set](screenshot.png) -->
 
 This is a C++ project that allows you to render and visualize the Julia Set using OpenGL shaders. The Julia Set is a famous fractal in mathematics, and this project provides a graphical representation of it. The project uses the Conan package manager for handling dependencies and includes GPL-3.0 license for distribution and use.
