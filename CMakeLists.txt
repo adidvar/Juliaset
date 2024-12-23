@@ -1,17 +1,19 @@
-cmake_minimum_required(VERSION 3.25.1)
-project(Julia)
+cmake_minimum_required(VERSION 3.30)
+project(JuliaSet)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-file(COPY_FILE conanfile.txt ${CMAKE_BINARY_DIR}/conanfile.txt)
-set(CMAKE_PREFIX_PATH "${CMAKE_BINARY_DIR};${CMAKE_PREFIX_PATH}")
-set(CMAKE_MODULE_PATH "${CMAKE_BINARY_DIR};${CMAKE_MODULE_PATH}")
 
 find_package(glfw3 REQUIRED)
 find_package(glad REQUIRED)
 find_package(glm REQUIRED)
 
-add_executable(Julia src/main.cpp src/shader.h src/shader.cpp)
-target_link_libraries(Julia opengl::opengl glfw ${GLFW3_LIBRARY} glad::glad glm::glm)
-target_include_directories(Julia PUBLIC ${glfw3_INCLUDE_DIRS})
+add_executable(JuliaSet src/main.cpp src/shader.h src/shader.cpp)
+target_link_libraries(JuliaSet opengl::opengl glfw ${GLFW3_LIBRARY} glad::glad glm::glm)
+target_include_directories(JuliaSet PUBLIC ${glfw3_INCLUDE_DIRS})
+
+install(TARGETS JuliaSet 
+    RUNTIME DESTINATION .
+)
+
+install(FILES shaders/FragmentShader.txt shaders/VertexShader.txt DESTINATION .)
