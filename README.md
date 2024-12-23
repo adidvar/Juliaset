@@ -10,8 +10,7 @@ This is a C++ project that allows you to render and visualize the Julia Set usin
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [Dependencies](#dependencies)
-- [Installation](#installation)
-- [Usage](#usage)
+- [Gallery](#gallery)
 - [License](#license)
 
 ## Introduction
@@ -31,24 +30,34 @@ To get started with the Julia Set Renderer, follow these steps:
 1. **Clone the Repository:** Clone this repository to your local machine using the following command:
 
    ```
-   git clone https://github.com/adidvar/Juliaset.git
+   git clone https://github.com/adidvar/julia-set.git
    ```
 
 2. **Navigate to Project Directory:** Move to the project directory:
 
    ```
-   cd Juliaset
+   cd julia-set
    ```
 
-3. **Install Dependencies:** Use the Conan package manager to install the required dependencies.
+3. **Install Dependencies:** 
 
    ```
-   conan install .
+   conan install . --output-folder=build
    ```
 
-4. **Build the Project:** Build the project using your preferred build system (CMake, Make, Visual Studio, etc.).
+4. **Build the Project:** 
 
-5. **Run the Application:** Copy shaders to app directory.Execute the compiled application and explore the Julia Set fractal.
+ ```
+   cd build
+   cmake -S .. --preset conan-default
+   ```
+
+5. **Install the Application and Run:** 
+
+ ```
+   cmake --install .
+   ./JuliaSet
+   ```
 
 ## Dependencies
 
@@ -60,18 +69,11 @@ The project uses the following dependencies, which will be automatically install
 - GLM
 - conan
 
-## Installation
+## Gallery
 
-To install the Julia Set Renderer, follow the steps mentioned in the [Getting Started](#getting-started) section. Make sure you have Conan installed before proceeding.
-
-## Usage
-
-After building and running the application, you will be presented with a window displaying the rendered Julia Set fractal.
+![Image 1](./assets/Screenshot1.png)
+![Image 2](./assets/Screenshot2.png)
 
 ## License
 
 This project is licensed under the GNU General Public License v3.0. For more details, see the [LICENSE](LICENSE) file.
-
----
-
-Feel free to contribute to the project by submitting issues or pull requests. If you have any questions or suggestions, please don't hesitate to contact us.
